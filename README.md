@@ -6,7 +6,8 @@
 
 Excalidraw Studio is a local-first Codex plugin for creating, validating, rendering, and visually refining editable Excalidraw diagrams inside a Git repository.
 
-It solves a practical agent workflow gap: generating `.excalidraw` JSON is easy, but ensuring that the file is valid, readable, visually balanced, editable, and safely stored in the right repository takes a repeatable toolchain. Excalidraw Studio bundles that toolchain as one skill, one local MCP server, and one dependency-free Python CLI.
+It solves a practical agent workflow gap: generating `.excalidraw` JSON is easy, but ensuring that the file is valid, readable and visually balanced takes a repeatable toolchain. 
+Excalidraw Studio bundles that toolchain as one skill, one local MCP server, and one dependency-free Python CLI.
 
 ![Excalidraw Studio local workflow](plugins/excalidraw-studio/assets/preview.png)
 
@@ -21,25 +22,28 @@ It solves a practical agent workflow gap: generating `.excalidraw` JSON is easy,
 
 The bundled tools are `excalidraw_doctor`, `create_excalidraw_diagram`, `validate_excalidraw_diagram`, `inspect_excalidraw_diagram`, and `render_excalidraw_preview`.
 
-## Why this exists
-
-Without a dedicated workflow, an agent can produce syntactically plausible Excalidraw JSON that still has overlapping labels, broken arrow bindings, unreadable spacing, or an output path outside the intended project. Screenshots alone are not editable, while cloud share links move the source out of version control.
-
-Excalidraw Studio treats the `.excalidraw` file as source code: local, editable, diffable, validated, and accompanied by a preview that Codex can actually inspect before declaring the diagram finished.
-
 ## Install
 
-### From this public marketplace repository
+### Recommended: ask Codex to build your own version
 
-Add this repository as a Codex plugin marketplace:
+The repository is intentionally small, auditable and tailored to my system. 
+You will likely prefer a version tailored to your operating system, policies, paths, and diagram style.
 
-```bash
-codex plugin marketplace add Hector-Touza/excalidraw-studio --ref main
+Ask Codex to recreate the capability rather than installing this exact bundle:
+
+```text
+Use the built-in plugin-creator and skill-creator workflows to build me a personal
+Codex plugin equivalent to Excalidraw Studio https://github.com/Hector-Touza/excalidraw-studio,
+adapted to this machine and my active Git repository. It must create and edit
+native .excalidraw files, validate scene structure and arrow bindings, inspect layout
+defects, render local SVG and PNG previews, and visually review the PNG before finishing.
+Keep every write inside the Git root; refuse accidental overwrites; preserve stable
+element IDs during edits; and keep the editable .excalidraw file as the canonical artifact.
+Use a local stdio MCP server plus a dependency-free Python CLI fallback. Do not require Excalidraw+,
+an Excalidraw account, npm, an API key, cloud storage, uploads, or share links. Add a
+personal marketplace entry, validate the manifest and skill, and forward-test the
+complete create → validate → render → inspect → adjust loop in a temporary Git repo.
 ```
-
-Then restart the ChatGPT desktop app, open **Plugins**, choose **Excalidraw Studio**, and install it. In Codex CLI, open `/plugins`, select the `Excalidraw Studio` marketplace, and install the plugin. Start a new task or CLI session so the bundled skill and MCP tools are loaded.
-
-This repository is the current public distribution channel. Excalidraw Studio has not yet been submitted to the official OpenAI Plugins Directory, so there is no official store listing to link to today.
 
 ### Ask Codex to install it for you
 
@@ -52,23 +56,8 @@ marketplace flow, preserve my existing marketplaces, restart or start a new sess
 if required, and run its doctor check inside my current Git repository.
 ```
 
-### Recommended: ask Codex to build your own version
+Excalidraw Studio has not been submitted to the official OpenAI Plugins Directory, so there is no official store listing to link to.
 
-The repository is intentionally small and auditable. If you prefer a version tailored to your operating system, policies, paths, and diagram style, ask Codex to recreate the capability rather than installing this exact bundle:
-
-```text
-Use the built-in plugin-creator and skill-creator workflows to build me a personal
-Codex plugin equivalent to Excalidraw Studio, adapted to this machine and my active
-Git repository. It must create and edit native .excalidraw files, validate scene
-structure and arrow bindings, inspect layout defects, render local SVG and PNG
-previews, and visually review the PNG before finishing. Keep every write inside the
-Git root; refuse accidental overwrites; preserve stable element IDs during edits;
-and keep the editable .excalidraw file as the canonical artifact. Use a local stdio
-MCP server plus a dependency-free Python CLI fallback. Do not require Excalidraw+,
-an Excalidraw account, npm, an API key, cloud storage, uploads, or share links. Add a
-personal marketplace entry, validate the manifest and skill, and forward-test the
-complete create → validate → render → inspect → adjust loop in a temporary Git repo.
-```
 
 ## Use
 
@@ -82,23 +71,6 @@ to three small layout improvements before returning the source and preview paths
 
 You can also invoke the bundled skill explicitly as `$excalidraw-studio`.
 
-### CLI fallback
-
-If MCP tools are unavailable, the same workflow is available through the bundled CLI:
-
-```bash
-python plugins/excalidraw-studio/scripts/excalidraw_studio.py doctor --workspace .
-python plugins/excalidraw-studio/scripts/excalidraw_studio.py create \
-  --workspace . \
-  --output docs/diagrams/example.excalidraw \
-  --spec examples/local-workflow-spec.json
-python plugins/excalidraw-studio/scripts/excalidraw_studio.py validate \
-  --workspace . --file docs/diagrams/example.excalidraw
-python plugins/excalidraw-studio/scripts/excalidraw_studio.py inspect \
-  --workspace . --file docs/diagrams/example.excalidraw
-```
-
-On PowerShell, use backticks or place the command on one line instead of the Bash line continuations shown above.
 
 ## How it works
 
@@ -131,35 +103,10 @@ Review any third-party plugin before installing it. Codex sandbox and approval p
 - Microsoft Edge is optional and used only for PNG previews; SVG rendering works without it.
 - A free Excalidraw editor, such as [excalidraw.com](https://excalidraw.com/), to open and manually refine the source file.
 
-## Repository layout
-
-```text
-.agents/plugins/marketplace.json             Public marketplace catalog
-plugins/excalidraw-studio/.codex-plugin/     Plugin manifest
-plugins/excalidraw-studio/skills/            Codex workflow and design references
-plugins/excalidraw-studio/mcp/                Local stdio MCP server
-plugins/excalidraw-studio/scripts/            Dependency-free Python implementation
-plugins/excalidraw-studio/assets/preview.png  English workflow illustration
-examples/local-workflow-spec.json             Editable example input
-examples/local-workflow.excalidraw             Generated editable example
-```
-
-## Development and verification
-
-From the repository root:
-
-```bash
-python -m py_compile \
-  plugins/excalidraw-studio/scripts/excalidraw_studio.py \
-  plugins/excalidraw-studio/mcp/server.py
-python plugins/excalidraw-studio/scripts/excalidraw_studio.py doctor --workspace .
-```
-
-A meaningful smoke test creates a diagram from `examples/local-workflow-spec.json`, validates and inspects it, renders both previews, and opens the `.excalidraw` source in the free editor.
-
 ## Status and limitations
 
-This is an early public release. The compact compiler currently supports rectangles, ellipses, diamonds, free-standing text, straight or elbow arrows, semantic colors, and solid/dashed/dotted strokes. It is not a full replacement for the Excalidraw UI or renderer.
+The compact compiler currently supports rectangles, ellipses, diamonds, free-standing text, straight or elbow arrows, semantic colors, and solid/dashed/dotted strokes. 
+It is not a full replacement for the Excalidraw UI or renderer.
 
 Excalidraw Studio is an independent community project and is not affiliated with or endorsed by Excalidraw or OpenAI.
 
