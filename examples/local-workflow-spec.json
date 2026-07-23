@@ -1,0 +1,94 @@
+{
+  "title": "Excalidraw Studio · local workflow",
+  "roughness": 1,
+  "nodes": [
+    {
+      "id": "idea",
+      "type": "ellipse",
+      "x": 60,
+      "y": 145,
+      "width": 210,
+      "height": 96,
+      "label": "Idea or\narchitecture",
+      "semantic": "trigger"
+    },
+    {
+      "id": "studio",
+      "type": "rectangle",
+      "x": 390,
+      "y": 145,
+      "width": 240,
+      "height": 96,
+      "label": "Excalidraw Studio",
+      "semantic": "process"
+    },
+    {
+      "id": "source",
+      "type": "rectangle",
+      "x": 770,
+      "y": 145,
+      "width": 250,
+      "height": 96,
+      "label": "docs/diagrams/\n*.excalidraw",
+      "semantic": "primary"
+    },
+    {
+      "id": "preview",
+      "type": "rectangle",
+      "x": 770,
+      "y": 405,
+      "width": 250,
+      "height": 96,
+      "label": "Local SVG + PNG\npreview",
+      "semantic": "success"
+    },
+    {
+      "id": "review",
+      "type": "diamond",
+      "x": 410,
+      "y": 390,
+      "width": 220,
+      "height": 124,
+      "label": "Is the design clean?",
+      "semantic": "warning"
+    }
+  ],
+  "edges": [
+    {
+      "id": "idea-to-studio",
+      "from": "idea",
+      "to": "studio",
+      "route": "straight"
+    },
+    {
+      "id": "studio-to-source",
+      "from": "studio",
+      "to": "source",
+      "label": "generates",
+      "route": "straight"
+    },
+    {
+      "id": "source-to-preview",
+      "from": "source",
+      "to": "preview",
+      "label": "renders locally",
+      "route": "straight"
+    },
+    {
+      "id": "preview-to-review",
+      "from": "preview",
+      "to": "review",
+      "label": "inspects",
+      "style": "dashed",
+      "route": "straight"
+    },
+    {
+      "id": "review-to-studio",
+      "from": "review",
+      "to": "studio",
+      "label": "minimal adjustment",
+      "style": "dashed",
+      "route": "straight"
+    }
+  ]
+}

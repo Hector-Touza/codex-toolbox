@@ -1,0 +1,43 @@
+{
+  "name": "excalidraw-studio",
+  "version": "0.1.0",
+  "description": "Create, validate, render, and visually refine repo-local Excalidraw diagrams without Excalidraw+ or cloud storage.",
+  "author": {
+    "name": "Hector Touza",
+    "url": "https://github.com/Hector-Touza"
+  },
+  "homepage": "https://github.com/Hector-Touza/excalidraw-studio",
+  "repository": "https://github.com/Hector-Touza/excalidraw-studio",
+  "license": "MIT",
+  "keywords": [
+    "excalidraw",
+    "diagrams",
+    "architecture",
+    "local-first",
+    "visual-qa"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Excalidraw Studio",
+    "shortDescription": "Repo-local Excalidraw with visual QA",
+    "longDescription": "Build editable .excalidraw files inside the active Git repository, validate geometry and bindings, render local SVG/PNG previews, and iterate visually without uploads, share links, API keys, or Excalidraw+.",
+    "developerName": "Hector Touza",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Write",
+      "Interactive"
+    ],
+    "websiteURL": "https://github.com/Hector-Touza/excalidraw-studio",
+    "brandColor": "#4F46E5",
+    "screenshots": [
+      "./assets/preview.png"
+    ],
+    "defaultPrompt": [
+      "Create an Excalidraw architecture diagram and save it in this repo.",
+      "Review and improve an existing repo-local .excalidraw file.",
+      "Render and inspect this Excalidraw diagram for layout defects."
+    ]
+  }
+}

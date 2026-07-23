@@ -1,0 +1,13 @@
+interface:
+  display_name: "Excalidraw Studio"
+  short_description: "Repo-local diagrams with visual QA"
+  default_prompt: "Use $excalidraw-studio to create an editable diagram in this repository and visually verify it."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "excalidraw-studio"
+      description: "Local Excalidraw creation, validation, inspection, and rendering"
+
+policy:
+  allow_implicit_invocation: true

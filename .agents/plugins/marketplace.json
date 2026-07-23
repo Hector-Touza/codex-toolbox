@@ -1,0 +1,20 @@
+{
+  "name": "excalidraw-studio",
+  "interface": {
+    "displayName": "Excalidraw Studio"
+  },
+  "plugins": [
+    {
+      "name": "excalidraw-studio",
+      "source": {
+        "source": "local",
+        "path": "./plugins/excalidraw-studio"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}
