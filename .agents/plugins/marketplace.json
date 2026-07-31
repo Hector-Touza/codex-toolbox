@@ -1,7 +1,7 @@
 {
-  "name": "excalidraw-studio",
+  "name": "codex-toolbox",
   "interface": {
-    "displayName": "Excalidraw Studio"
+    "displayName": "Codex Toolbox"
   },
   "plugins": [
     {
@@ -15,6 +15,18 @@
         "authentication": "ON_INSTALL"
       },
       "category": "Developer Tools"
+    },
+    {
+      "name": "app-qa",
+      "source": {
+        "source": "local",
+        "path": "./plugins/app-qa"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
     }
   ]
 }

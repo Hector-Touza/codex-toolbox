@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1648" height="640" viewBox="-4.00 -30.00 1648.00 640.00">
+<rect x="-4.00" y="-30.00" width="1648.00" height="640.00" fill="#ffffff"/>
+<polyline points="280.00,310.00 360.00,310.00" fill="none" stroke="#334155" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="360.00,310.00 348.06,317.32 348.06,302.68" fill="#334155" />
+<polyline points="580.00,310.00 795.00,232.00" fill="none" stroke="#334155" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="795.00,232.00 786.28,242.95 781.28,229.19" fill="#334155" />
+<polyline points="580.00,310.00 660.00,310.00" fill="none" stroke="#334155" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="660.00,310.00 648.06,317.32 648.06,302.68" fill="#334155" />
+<polyline points="580.00,310.00 795.00,388.00" fill="none" stroke="#334155" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="795.00,388.00 781.28,390.81 786.28,377.05" fill="#334155" />
+<polyline points="795.00,232.00 1030.00,310.00" fill="none" stroke="#334155" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="1030.00,310.00 1016.37,313.19 1020.98,299.30" fill="#334155" />
+<polyline points="930.00,310.00 1030.00,310.00" fill="none" stroke="#334155" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="1030.00,310.00 1018.06,317.32 1018.06,302.68" fill="#334155" />
+<polyline points="795.00,388.00 1030.00,310.00" fill="none" stroke="#334155" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="1030.00,310.00 1020.98,320.70 1016.37,306.81" fill="#334155" />
+<polyline points="1250.00,310.00 1330.00,310.00" fill="none" stroke="#334155" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="1330.00,310.00 1318.06,317.32 1318.06,302.68" fill="#334155" />
+<polyline points="1140.00,355.00 1140.00,510.00 470.00,510.00 470.00,355.00" fill="none" stroke="#a16207" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<polygon points="470.00,355.00 477.32,366.94 462.68,366.94" fill="#a16207" />
+<rect x="60.0" y="265.0" width="220.0" height="90.0" rx="11.25" fill="#fed7aa" stroke="#c2410c" stroke-width="2.0" opacity="1.000"/>
+<rect x="360.0" y="265.0" width="220.0" height="90.0" rx="11.25" fill="#e0f2fe" stroke="#0369a1" stroke-width="2.0" opacity="1.000"/>
+<rect x="660.0" y="160.0" width="270.0" height="72.0" rx="9.00" fill="#dbeafe" stroke="#1e40af" stroke-width="2.0" opacity="1.000"/>
+<rect x="660.0" y="274.0" width="270.0" height="72.0" rx="9.00" fill="#dbeafe" stroke="#1e40af" stroke-width="2.0" opacity="1.000"/>
+<rect x="660.0" y="388.0" width="270.0" height="72.0" rx="9.00" fill="#dbeafe" stroke="#1e40af" stroke-width="2.0" opacity="1.000"/>
+<rect x="1030.0" y="265.0" width="220.0" height="90.0" rx="11.25" fill="#fef9c3" stroke="#854d0e" stroke-width="2.0" opacity="1.000"/>
+<rect x="1330.0" y="265.0" width="250.0" height="90.0" rx="11.25" fill="#dcfce7" stroke="#166534" stroke-width="2.0" opacity="1.000"/>
+<text x="60.00" y="61.30" text-anchor="start" font-family="Segoe Print, Comic Sans MS, cursive" font-size="28.0" fill="#1e293b">
+<tspan x="60.00" dy="0.00">Local app-QA in five steps</tspan>
+</text>
+<text x="795.00" y="127.60" text-anchor="middle" font-family="Segoe Print, Comic Sans MS, cursive" font-size="16.0" fill="#334155">
+<tspan x="795.00" dy="0.00">Independent review in</tspan>
+<tspan x="795.00" dy="20.00">parallel</tspan>
+</text>
+<text x="810.00" y="534.90" text-anchor="middle" font-family="Segoe Print, Comic Sans MS, cursive" font-size="14.0" fill="#a16207">
+<tspan x="810.00" dy="0.00">rework</tspan>
+</text>
+<text x="170.00" y="293.80" text-anchor="middle" font-family="Segoe Print, Comic Sans MS, cursive" font-size="18.0" fill="#1e293b">
+<tspan x="170.00" dy="0.00">Implementation spec</tspan>
+<tspan x="170.00" dy="22.50">+ acceptance</tspan>
+<tspan x="170.00" dy="22.50">criteria</tspan>
+</text>
+<text x="470.00" y="304.50" text-anchor="middle" font-family="Segoe Print, Comic Sans MS, cursive" font-size="20.0" fill="#1e293b">
+<tspan x="470.00" dy="0.00">Main thread</tspan>
+<tspan x="470.00" dy="25.00">implements</tspan>
+</text>
+<text x="795.00" y="190.50" text-anchor="middle" font-family="Segoe Print, Comic Sans MS, cursive" font-size="20.0" fill="#1e293b">
+<tspan x="795.00" dy="0.00">Product &amp; Intent</tspan>
+<tspan x="795.00" dy="25.00">critic</tspan>
+</text>
+<text x="795.00" y="305.05" text-anchor="middle" font-family="Segoe Print, Comic Sans MS, cursive" font-size="18.0" fill="#1e293b">
+<tspan x="795.00" dy="0.00">Experience &amp;</tspan>
+<tspan x="795.00" dy="22.50">Communication critic</tspan>
+</text>
+<text x="795.00" y="419.05" text-anchor="middle" font-family="Segoe Print, Comic Sans MS, cursive" font-size="18.0" fill="#1e293b">
+<tspan x="795.00" dy="0.00">Engineering &amp;</tspan>
+<tspan x="795.00" dy="22.50">Operational critic</tspan>
+</text>
+<text x="1140.00" y="317.00" text-anchor="middle" font-family="Segoe Print, Comic Sans MS, cursive" font-size="20.0" fill="#1e293b">
+<tspan x="1140.00" dy="0.00">Review findings</tspan>
+</text>
+<text x="1455.00" y="293.80" text-anchor="middle" font-family="Segoe Print, Comic Sans MS, cursive" font-size="18.0" fill="#1e293b">
+<tspan x="1455.00" dy="0.00">Report on work</tspan>
+<tspan x="1455.00" dy="22.50">delivered</tspan>
+<tspan x="1455.00" dy="22.50">+ QA findings</tspan>
+</text>
+</svg>

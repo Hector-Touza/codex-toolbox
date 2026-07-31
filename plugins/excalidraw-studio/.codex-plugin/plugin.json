@@ -6,8 +6,8 @@
     "name": "Hector Touza",
     "url": "https://github.com/Hector-Touza"
   },
-  "homepage": "https://github.com/Hector-Touza/excalidraw-studio",
-  "repository": "https://github.com/Hector-Touza/excalidraw-studio",
+  "homepage": "https://github.com/Hector-Touza/codex-toolbox/tree/main/plugins/excalidraw-studio",
+  "repository": "https://github.com/Hector-Touza/codex-toolbox",
   "license": "MIT",
   "keywords": [
     "excalidraw",
@@ -29,7 +29,7 @@
       "Write",
       "Interactive"
     ],
-    "websiteURL": "https://github.com/Hector-Touza/excalidraw-studio",
+    "websiteURL": "https://github.com/Hector-Touza/codex-toolbox/tree/main/plugins/excalidraw-studio",
     "brandColor": "#4F46E5",
     "screenshots": [
       "./assets/preview.png"

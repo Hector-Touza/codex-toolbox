@@ -1,0 +1,6 @@
+interface:
+  display_name: "App QA"
+  short_description: "Validate apps with three independent critics."
+  default_prompt: "Validate this app with app-qa."
+policy:
+  allow_implicit_invocation: true
