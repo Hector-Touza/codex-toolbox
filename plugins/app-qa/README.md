@@ -7,9 +7,9 @@ App QA is a Codex plugin for the final review of an app, site, dashboard, page, 
 
 It addresses a common limitation in agent workflows. The thread that builds an artifact can miss the same assumptions during self-review. App QA separates implementation from three independent review perspectives. The main task still owns every decision and file change.
 
-![App QA workflow](assets/preview.png)
+![App QA workflow from an implementation specification through three parallel critics to delivered work and QA findings](assets/preview.png)
 
-The editable source for this diagram is in [examples/app-qa-workflow.excalidraw](examples/app-qa-workflow.excalidraw).
+The editable Excalidraw source for this workflow is in [examples/app-qa-workflow.excalidraw](examples/app-qa-workflow.excalidraw).
 
 ## What it does
 

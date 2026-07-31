@@ -6,8 +6,8 @@
     {
       "id": "diagram-title",
       "type": "text",
-      "x": 80.0,
-      "y": 87.0,
+      "x": 60.0,
+      "y": 34.0,
       "width": 414.96,
       "height": 35.0,
       "angle": 0,
@@ -30,7 +30,7 @@
       "link": null,
       "locked": false,
       "fontSize": 28,
-      "fontFamily": 2,
+      "fontFamily": 1,
       "text": "Local app-QA in five steps",
       "rawText": "Local app-QA in five steps",
       "originalText": "Local app-QA in five steps",
@@ -41,116 +41,10 @@
       "lineHeight": 1.25
     },
     {
-      "id": "prompt-implement",
+      "id": "spec-to-main",
       "type": "arrow",
-      "x": 300.0,
-      "y": 225.0,
-      "width": 60.0,
-      "height": 0.0,
-      "angle": 0,
-      "strokeColor": "#334155",
-      "backgroundColor": "transparent",
-      "fillStyle": "solid",
-      "strokeWidth": 2,
-      "strokeStyle": "solid",
-      "roughness": 0.45,
-      "opacity": 100,
-      "groupIds": [],
-      "frameId": null,
-      "roundness": {
-        "type": 2
-      },
-      "seed": 980367429,
-      "version": 1,
-      "versionNonce": 575676317,
-      "isDeleted": false,
-      "boundElements": null,
-      "updated": 1,
-      "link": null,
-      "locked": false,
-      "points": [
-        [
-          0.0,
-          0.0
-        ],
-        [
-          60.0,
-          0.0
-        ]
-      ],
-      "lastCommittedPoint": null,
-      "startBinding": {
-        "elementId": "prompt",
-        "focus": 0,
-        "gap": 1
-      },
-      "endBinding": {
-        "elementId": "implement",
-        "focus": 0,
-        "gap": 1
-      },
-      "startArrowhead": null,
-      "endArrowhead": "arrow",
-      "elbowed": false
-    },
-    {
-      "id": "implement-critics",
-      "type": "arrow",
-      "x": 580.0,
-      "y": 225.0,
-      "width": 60.0,
-      "height": 0.0,
-      "angle": 0,
-      "strokeColor": "#334155",
-      "backgroundColor": "transparent",
-      "fillStyle": "solid",
-      "strokeWidth": 2,
-      "strokeStyle": "solid",
-      "roughness": 0.45,
-      "opacity": 100,
-      "groupIds": [],
-      "frameId": null,
-      "roundness": {
-        "type": 2
-      },
-      "seed": 391721861,
-      "version": 1,
-      "versionNonce": 1107773507,
-      "isDeleted": false,
-      "boundElements": null,
-      "updated": 1,
-      "link": null,
-      "locked": false,
-      "points": [
-        [
-          0.0,
-          0.0
-        ],
-        [
-          60.0,
-          0.0
-        ]
-      ],
-      "lastCommittedPoint": null,
-      "startBinding": {
-        "elementId": "implement",
-        "focus": 0,
-        "gap": 1
-      },
-      "endBinding": {
-        "elementId": "critics",
-        "focus": 0,
-        "gap": 1
-      },
-      "startArrowhead": null,
-      "endArrowhead": "arrow",
-      "elbowed": false
-    },
-    {
-      "id": "critics-adjudicate",
-      "type": "arrow",
-      "x": 900.0,
-      "y": 225.0,
+      "x": 280.0,
+      "y": 310.0,
       "width": 80.0,
       "height": 0.0,
       "angle": 0,
@@ -159,16 +53,16 @@
       "fillStyle": "solid",
       "strokeWidth": 2,
       "strokeStyle": "solid",
-      "roughness": 0.45,
+      "roughness": 0.0,
       "opacity": 100,
       "groupIds": [],
       "frameId": null,
       "roundness": {
         "type": 2
       },
-      "seed": 1804420568,
+      "seed": 77083252,
       "version": 1,
-      "versionNonce": 446979836,
+      "versionNonce": 1181029422,
       "isDeleted": false,
       "boundElements": null,
       "updated": 1,
@@ -186,12 +80,12 @@
       ],
       "lastCommittedPoint": null,
       "startBinding": {
-        "elementId": "critics",
+        "elementId": "implementation-spec",
         "focus": 0,
         "gap": 1
       },
       "endBinding": {
-        "elementId": "adjudicate",
+        "elementId": "main-thread",
         "focus": 0,
         "gap": 1
       },
@@ -200,11 +94,64 @@
       "elbowed": false
     },
     {
-      "id": "adjudicate-deliver",
+      "id": "main-to-product",
       "type": "arrow",
-      "x": 1200.0,
-      "y": 225.0,
-      "width": 60.0,
+      "x": 580.0,
+      "y": 310.0,
+      "width": 215.0,
+      "height": -78.0,
+      "angle": 0,
+      "strokeColor": "#334155",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0.0,
+      "opacity": 100,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": 2
+      },
+      "seed": 1726402487,
+      "version": 1,
+      "versionNonce": 449806029,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "points": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          215.0,
+          -78.0
+        ]
+      ],
+      "lastCommittedPoint": null,
+      "startBinding": {
+        "elementId": "main-thread",
+        "focus": 0,
+        "gap": 1
+      },
+      "endBinding": {
+        "elementId": "product-intent-critic",
+        "focus": 0,
+        "gap": 1
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "elbowed": false
+    },
+    {
+      "id": "main-to-experience",
+      "type": "arrow",
+      "x": 580.0,
+      "y": 310.0,
+      "width": 80.0,
       "height": 0.0,
       "angle": 0,
       "strokeColor": "#334155",
@@ -212,16 +159,16 @@
       "fillStyle": "solid",
       "strokeWidth": 2,
       "strokeStyle": "solid",
-      "roughness": 0.45,
+      "roughness": 0.0,
       "opacity": 100,
       "groupIds": [],
       "frameId": null,
       "roundness": {
         "type": 2
       },
-      "seed": 360196348,
+      "seed": 1295401151,
       "version": 1,
-      "versionNonce": 1196750542,
+      "versionNonce": 898689326,
       "isDeleted": false,
       "boundElements": null,
       "updated": 1,
@@ -233,18 +180,18 @@
           0.0
         ],
         [
-          60.0,
+          80.0,
           0.0
         ]
       ],
       "lastCommittedPoint": null,
       "startBinding": {
-        "elementId": "adjudicate",
+        "elementId": "main-thread",
         "focus": 0,
         "gap": 1
       },
       "endBinding": {
-        "elementId": "deliver",
+        "elementId": "experience-communication-critic",
         "focus": 0,
         "gap": 1
       },
@@ -253,28 +200,293 @@
       "elbowed": false
     },
     {
-      "id": "recheck-loop",
+      "id": "main-to-engineering",
       "type": "arrow",
-      "x": 1090.0,
-      "y": 270.0,
-      "width": 320.0,
-      "height": 120.0,
+      "x": 580.0,
+      "y": 310.0,
+      "width": 215.0,
+      "height": 78.0,
       "angle": 0,
-      "strokeColor": "#854d0e",
+      "strokeColor": "#334155",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0.0,
+      "opacity": 100,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": 2
+      },
+      "seed": 1245905152,
+      "version": 1,
+      "versionNonce": 331791624,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "points": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          215.0,
+          78.0
+        ]
+      ],
+      "lastCommittedPoint": null,
+      "startBinding": {
+        "elementId": "main-thread",
+        "focus": 0,
+        "gap": 1
+      },
+      "endBinding": {
+        "elementId": "engineering-operational-critic",
+        "focus": 0,
+        "gap": 1
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "elbowed": false
+    },
+    {
+      "id": "product-to-findings",
+      "type": "arrow",
+      "x": 795.0,
+      "y": 232.0,
+      "width": 235.0,
+      "height": 78.0,
+      "angle": 0,
+      "strokeColor": "#334155",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0.0,
+      "opacity": 100,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": 2
+      },
+      "seed": 1266042998,
+      "version": 1,
+      "versionNonce": 1489258204,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "points": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          235.0,
+          78.0
+        ]
+      ],
+      "lastCommittedPoint": null,
+      "startBinding": {
+        "elementId": "product-intent-critic",
+        "focus": 0,
+        "gap": 1
+      },
+      "endBinding": {
+        "elementId": "review-findings",
+        "focus": 0,
+        "gap": 1
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "elbowed": false
+    },
+    {
+      "id": "experience-to-findings",
+      "type": "arrow",
+      "x": 930.0,
+      "y": 310.0,
+      "width": 100.0,
+      "height": 0.0,
+      "angle": 0,
+      "strokeColor": "#334155",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0.0,
+      "opacity": 100,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": 2
+      },
+      "seed": 1037045593,
+      "version": 1,
+      "versionNonce": 188844014,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "points": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          100.0,
+          0.0
+        ]
+      ],
+      "lastCommittedPoint": null,
+      "startBinding": {
+        "elementId": "experience-communication-critic",
+        "focus": 0,
+        "gap": 1
+      },
+      "endBinding": {
+        "elementId": "review-findings",
+        "focus": 0,
+        "gap": 1
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "elbowed": false
+    },
+    {
+      "id": "engineering-to-findings",
+      "type": "arrow",
+      "x": 795.0,
+      "y": 388.0,
+      "width": 235.0,
+      "height": -78.0,
+      "angle": 0,
+      "strokeColor": "#334155",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0.0,
+      "opacity": 100,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": 2
+      },
+      "seed": 144949630,
+      "version": 1,
+      "versionNonce": 911338087,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "points": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          235.0,
+          -78.0
+        ]
+      ],
+      "lastCommittedPoint": null,
+      "startBinding": {
+        "elementId": "engineering-operational-critic",
+        "focus": 0,
+        "gap": 1
+      },
+      "endBinding": {
+        "elementId": "review-findings",
+        "focus": 0,
+        "gap": 1
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "elbowed": false
+    },
+    {
+      "id": "findings-to-report",
+      "type": "arrow",
+      "x": 1250.0,
+      "y": 310.0,
+      "width": 80.0,
+      "height": 0.0,
+      "angle": 0,
+      "strokeColor": "#334155",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0.0,
+      "opacity": 100,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": 2
+      },
+      "seed": 506804085,
+      "version": 1,
+      "versionNonce": 476592634,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "points": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          80.0,
+          0.0
+        ]
+      ],
+      "lastCommittedPoint": null,
+      "startBinding": {
+        "elementId": "review-findings",
+        "focus": 0,
+        "gap": 1
+      },
+      "endBinding": {
+        "elementId": "delivery-report",
+        "focus": 0,
+        "gap": 1
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "elbowed": false
+    },
+    {
+      "id": "findings-to-main-rework",
+      "type": "arrow",
+      "x": 1140.0,
+      "y": 355.0,
+      "width": -670.0,
+      "height": 0.0,
+      "angle": 0,
+      "strokeColor": "#a16207",
       "backgroundColor": "transparent",
       "fillStyle": "solid",
       "strokeWidth": 2,
       "strokeStyle": "dashed",
-      "roughness": 0.35,
+      "roughness": 0.0,
       "opacity": 100,
       "groupIds": [],
       "frameId": null,
       "roundness": {
         "type": 2
       },
-      "seed": 42001,
+      "seed": 272195445,
       "version": 1,
-      "versionNonce": 42101,
+      "versionNonce": 910607872,
       "isDeleted": false,
       "boundElements": null,
       "updated": 1,
@@ -287,37 +499,37 @@
         ],
         [
           0.0,
-          120.0
+          155.0
         ],
         [
-          -320.0,
-          120.0
+          -670.0,
+          155.0
         ],
         [
-          -320.0,
-          15.0
+          -670.0,
+          0.0
         ]
       ],
       "lastCommittedPoint": null,
       "startBinding": {
-        "elementId": "adjudicate",
+        "elementId": "review-findings",
         "focus": 0,
         "gap": 1
       },
       "endBinding": {
-        "elementId": "critics",
+        "elementId": "main-thread",
         "focus": 0,
         "gap": 1
       },
       "startArrowhead": null,
       "endArrowhead": "arrow",
-      "elbowed": false
+      "elbowed": true
     },
     {
-      "id": "prompt",
+      "id": "implementation-spec",
       "type": "rectangle",
-      "x": 80.0,
-      "y": 180.0,
+      "x": 60.0,
+      "y": 265.0,
       "width": 220.0,
       "height": 90.0,
       "angle": 0,
@@ -326,25 +538,25 @@
       "fillStyle": "solid",
       "strokeWidth": 2,
       "strokeStyle": "solid",
-      "roughness": 0.35,
+      "roughness": 0.0,
       "opacity": 100,
       "groupIds": [],
       "frameId": null,
       "roundness": {
         "type": 3
       },
-      "seed": 604776481,
+      "seed": 909133152,
       "version": 1,
-      "versionNonce": 756129021,
+      "versionNonce": 1883523997,
       "isDeleted": false,
       "boundElements": [
         {
           "type": "text",
-          "id": "prompt-label"
+          "id": "implementation-spec-label"
         },
         {
           "type": "arrow",
-          "id": "prompt-implement"
+          "id": "spec-to-main"
         }
       ],
       "updated": 1,
@@ -352,10 +564,10 @@
       "locked": false
     },
     {
-      "id": "implement",
+      "id": "main-thread",
       "type": "rectangle",
       "x": 360.0,
-      "y": 180.0,
+      "y": 265.0,
       "width": 220.0,
       "height": 90.0,
       "angle": 0,
@@ -364,29 +576,41 @@
       "fillStyle": "solid",
       "strokeWidth": 2,
       "strokeStyle": "solid",
-      "roughness": 0.35,
+      "roughness": 0.0,
       "opacity": 100,
       "groupIds": [],
       "frameId": null,
       "roundness": {
         "type": 3
       },
-      "seed": 541893176,
+      "seed": 176769838,
       "version": 1,
-      "versionNonce": 1394889728,
+      "versionNonce": 1348693512,
       "isDeleted": false,
       "boundElements": [
         {
           "type": "text",
-          "id": "implement-label"
+          "id": "main-thread-label"
         },
         {
           "type": "arrow",
-          "id": "prompt-implement"
+          "id": "spec-to-main"
         },
         {
           "type": "arrow",
-          "id": "implement-critics"
+          "id": "main-to-product"
+        },
+        {
+          "type": "arrow",
+          "id": "main-to-experience"
+        },
+        {
+          "type": "arrow",
+          "id": "main-to-engineering"
+        },
+        {
+          "type": "arrow",
+          "id": "findings-to-main-rework"
         }
       ],
       "updated": 1,
@@ -394,45 +618,78 @@
       "locked": false
     },
     {
-      "id": "critics",
+      "id": "parallel-review-label",
+      "type": "text",
+      "x": 655.0,
+      "y": 112.0,
+      "width": 280.0,
+      "height": 40.0,
+      "angle": 0,
+      "strokeColor": "#334155",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": null,
+      "seed": 721165071,
+      "version": 1,
+      "versionNonce": 563636653,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "fontSize": 16.0,
+      "fontFamily": 1,
+      "text": "Independent review in\nparallel",
+      "rawText": "Independent review in\nparallel",
+      "originalText": "Independent review in\nparallel",
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": null,
+      "autoResize": true,
+      "lineHeight": 1.25
+    },
+    {
+      "id": "product-intent-critic",
       "type": "rectangle",
-      "x": 640.0,
-      "y": 165.0,
-      "width": 260.0,
-      "height": 120.0,
+      "x": 660.0,
+      "y": 160.0,
+      "width": 270.0,
+      "height": 72.0,
       "angle": 0,
       "strokeColor": "#1e40af",
       "backgroundColor": "#dbeafe",
       "fillStyle": "solid",
       "strokeWidth": 2,
       "strokeStyle": "solid",
-      "roughness": 0.35,
+      "roughness": 0.0,
       "opacity": 100,
       "groupIds": [],
       "frameId": null,
       "roundness": {
         "type": 3
       },
-      "seed": 1243243702,
+      "seed": 1131568703,
       "version": 1,
-      "versionNonce": 637030554,
+      "versionNonce": 1844403943,
       "isDeleted": false,
       "boundElements": [
         {
           "type": "text",
-          "id": "critics-label"
+          "id": "product-intent-critic-label"
         },
         {
           "type": "arrow",
-          "id": "implement-critics"
+          "id": "main-to-product"
         },
         {
           "type": "arrow",
-          "id": "critics-adjudicate"
-        },
-        {
-          "type": "arrow",
-          "id": "recheck-loop"
+          "id": "product-to-findings"
         }
       ],
       "updated": 1,
@@ -440,10 +697,94 @@
       "locked": false
     },
     {
-      "id": "adjudicate",
+      "id": "experience-communication-critic",
       "type": "rectangle",
-      "x": 980.0,
-      "y": 180.0,
+      "x": 660.0,
+      "y": 274.0,
+      "width": 270.0,
+      "height": 72.0,
+      "angle": 0,
+      "strokeColor": "#1e40af",
+      "backgroundColor": "#dbeafe",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0.0,
+      "opacity": 100,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": 3
+      },
+      "seed": 705929733,
+      "version": 1,
+      "versionNonce": 14533039,
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "type": "text",
+          "id": "experience-communication-critic-label"
+        },
+        {
+          "type": "arrow",
+          "id": "main-to-experience"
+        },
+        {
+          "type": "arrow",
+          "id": "experience-to-findings"
+        }
+      ],
+      "updated": 1,
+      "link": null,
+      "locked": false
+    },
+    {
+      "id": "engineering-operational-critic",
+      "type": "rectangle",
+      "x": 660.0,
+      "y": 388.0,
+      "width": 270.0,
+      "height": 72.0,
+      "angle": 0,
+      "strokeColor": "#1e40af",
+      "backgroundColor": "#dbeafe",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0.0,
+      "opacity": 100,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": 3
+      },
+      "seed": 83923101,
+      "version": 1,
+      "versionNonce": 773567794,
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "type": "text",
+          "id": "engineering-operational-critic-label"
+        },
+        {
+          "type": "arrow",
+          "id": "main-to-engineering"
+        },
+        {
+          "type": "arrow",
+          "id": "engineering-to-findings"
+        }
+      ],
+      "updated": 1,
+      "link": null,
+      "locked": false
+    },
+    {
+      "id": "review-findings",
+      "type": "rectangle",
+      "x": 1030.0,
+      "y": 265.0,
       "width": 220.0,
       "height": 90.0,
       "angle": 0,
@@ -452,33 +793,41 @@
       "fillStyle": "solid",
       "strokeWidth": 2,
       "strokeStyle": "solid",
-      "roughness": 0.35,
+      "roughness": 0.0,
       "opacity": 100,
       "groupIds": [],
       "frameId": null,
       "roundness": {
         "type": 3
       },
-      "seed": 227295120,
+      "seed": 2101084101,
       "version": 1,
-      "versionNonce": 1394247479,
+      "versionNonce": 24993030,
       "isDeleted": false,
       "boundElements": [
         {
           "type": "text",
-          "id": "adjudicate-label"
+          "id": "review-findings-label"
         },
         {
           "type": "arrow",
-          "id": "critics-adjudicate"
+          "id": "product-to-findings"
         },
         {
           "type": "arrow",
-          "id": "adjudicate-deliver"
+          "id": "experience-to-findings"
         },
         {
           "type": "arrow",
-          "id": "recheck-loop"
+          "id": "engineering-to-findings"
+        },
+        {
+          "type": "arrow",
+          "id": "findings-to-report"
+        },
+        {
+          "type": "arrow",
+          "id": "findings-to-main-rework"
         }
       ],
       "updated": 1,
@@ -486,11 +835,11 @@
       "locked": false
     },
     {
-      "id": "deliver",
+      "id": "delivery-report",
       "type": "rectangle",
-      "x": 1260.0,
-      "y": 180.0,
-      "width": 220.0,
+      "x": 1330.0,
+      "y": 265.0,
+      "width": 250.0,
       "height": 90.0,
       "angle": 0,
       "strokeColor": "#166534",
@@ -498,25 +847,25 @@
       "fillStyle": "solid",
       "strokeWidth": 2,
       "strokeStyle": "solid",
-      "roughness": 0.35,
+      "roughness": 0.0,
       "opacity": 100,
       "groupIds": [],
       "frameId": null,
       "roundness": {
         "type": 3
       },
-      "seed": 2058196818,
+      "seed": 1311241893,
       "version": 1,
-      "versionNonce": 541521542,
+      "versionNonce": 2056489768,
       "isDeleted": false,
       "boundElements": [
         {
           "type": "text",
-          "id": "deliver-label"
+          "id": "delivery-report-label"
         },
         {
           "type": "arrow",
-          "id": "adjudicate-deliver"
+          "id": "findings-to-report"
         }
       ],
       "updated": 1,
@@ -524,14 +873,14 @@
       "locked": false
     },
     {
-      "id": "prompt-label",
+      "id": "rework-label",
       "type": "text",
-      "x": 110.2,
-      "y": 212.5,
-      "width": 159.6,
-      "height": 25.0,
+      "x": 730.0,
+      "y": 514.0,
+      "width": 160.0,
+      "height": 32.0,
       "angle": 0,
-      "strokeColor": "#1e293b",
+      "strokeColor": "#a16207",
       "backgroundColor": "transparent",
       "fillStyle": "solid",
       "strokeWidth": 1,
@@ -541,68 +890,31 @@
       "groupIds": [],
       "frameId": null,
       "roundness": null,
-      "seed": 1133311391,
+      "seed": 1150703137,
       "version": 1,
-      "versionNonce": 1344522379,
+      "versionNonce": 933693342,
       "isDeleted": false,
       "boundElements": null,
       "updated": 1,
       "link": null,
       "locked": false,
-      "fontSize": 20.0,
-      "fontFamily": 2,
-      "text": "Minimal prompt",
-      "rawText": "Minimal prompt",
-      "originalText": "Minimal prompt",
+      "fontSize": 14.0,
+      "fontFamily": 1,
+      "text": "rework",
+      "rawText": "rework",
+      "originalText": "rework",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "prompt",
+      "containerId": null,
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "implement-label",
+      "id": "implementation-spec-label",
       "type": "text",
-      "x": 418.7,
-      "y": 200.0,
-      "width": 102.6,
-      "height": 50.0,
-      "angle": 0,
-      "strokeColor": "#1e293b",
-      "backgroundColor": "transparent",
-      "fillStyle": "solid",
-      "strokeWidth": 1,
-      "strokeStyle": "solid",
-      "roughness": 0,
-      "opacity": 100,
-      "groupIds": [],
-      "frameId": null,
-      "roundness": null,
-      "seed": 1124306742,
-      "version": 1,
-      "versionNonce": 300994143,
-      "isDeleted": false,
-      "boundElements": null,
-      "updated": 1,
-      "link": null,
-      "locked": false,
-      "fontSize": 20.0,
-      "fontFamily": 2,
-      "text": "Implement\ncandidate",
-      "rawText": "Implement\ncandidate",
-      "originalText": "Implement\ncandidate",
-      "textAlign": "center",
-      "verticalAlign": "middle",
-      "containerId": "implement",
-      "autoResize": true,
-      "lineHeight": 1.25
-    },
-    {
-      "id": "critics-label",
-      "type": "text",
-      "x": 657.14,
-      "y": 191.25,
-      "width": 225.72,
+      "x": 72.53,
+      "y": 276.25,
+      "width": 194.94,
       "height": 67.5,
       "angle": 0,
       "strokeColor": "#1e293b",
@@ -615,67 +927,30 @@
       "groupIds": [],
       "frameId": null,
       "roundness": null,
-      "seed": 1551904049,
+      "seed": 1924484900,
       "version": 1,
-      "versionNonce": 1747272486,
+      "versionNonce": 965889035,
       "isDeleted": false,
       "boundElements": null,
       "updated": 1,
       "link": null,
       "locked": false,
       "fontSize": 18.0,
-      "fontFamily": 2,
-      "text": "3 critic tasks\nProduct | Experience |\nEngineering",
-      "rawText": "3 critic tasks\nProduct | Experience |\nEngineering",
-      "originalText": "3 critic tasks\nProduct | Experience |\nEngineering",
+      "fontFamily": 1,
+      "text": "Implementation spec\n+ acceptance\ncriteria",
+      "rawText": "Implementation spec\n+ acceptance\ncriteria",
+      "originalText": "Implementation spec\n+ acceptance\ncriteria",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "critics",
+      "containerId": "implementation-spec",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "adjudicate-label",
+      "id": "main-thread-label",
       "type": "text",
-      "x": 998.8,
-      "y": 212.5,
-      "width": 182.4,
-      "height": 25.0,
-      "angle": 0,
-      "strokeColor": "#1e293b",
-      "backgroundColor": "transparent",
-      "fillStyle": "solid",
-      "strokeWidth": 1,
-      "strokeStyle": "solid",
-      "roughness": 0,
-      "opacity": 100,
-      "groupIds": [],
-      "frameId": null,
-      "roundness": null,
-      "seed": 17115049,
-      "version": 1,
-      "versionNonce": 869105256,
-      "isDeleted": false,
-      "boundElements": null,
-      "updated": 1,
-      "link": null,
-      "locked": false,
-      "fontSize": 20.0,
-      "fontFamily": 2,
-      "text": "Adjudicate + fix",
-      "rawText": "Adjudicate + fix",
-      "originalText": "Adjudicate + fix",
-      "textAlign": "center",
-      "verticalAlign": "middle",
-      "containerId": "adjudicate",
-      "autoResize": true,
-      "lineHeight": 1.25
-    },
-    {
-      "id": "deliver-label",
-      "type": "text",
-      "x": 1307.3,
-      "y": 200.0,
+      "x": 407.3,
+      "y": 285.0,
       "width": 125.4,
       "height": 50.0,
       "angle": 0,
@@ -689,34 +964,34 @@
       "groupIds": [],
       "frameId": null,
       "roundness": null,
-      "seed": 674102389,
+      "seed": 841518012,
       "version": 1,
-      "versionNonce": 281341639,
+      "versionNonce": 2013949420,
       "isDeleted": false,
       "boundElements": null,
       "updated": 1,
       "link": null,
       "locked": false,
       "fontSize": 20.0,
-      "fontFamily": 2,
-      "text": "Deploy + QA\nreport",
-      "rawText": "Deploy + QA\nreport",
-      "originalText": "Deploy + QA\nreport",
+      "fontFamily": 1,
+      "text": "Main thread\nimplements",
+      "rawText": "Main thread\nimplements",
+      "originalText": "Main thread\nimplements",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "deliver",
+      "containerId": "main-thread",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "recheck-loop-label",
+      "id": "product-intent-critic-label",
       "type": "text",
-      "x": 870.0,
-      "y": 398.0,
-      "width": 120.0,
-      "height": 22.0,
+      "x": 703.8,
+      "y": 171.0,
+      "width": 182.4,
+      "height": 50.0,
       "angle": 0,
-      "strokeColor": "#854d0e",
+      "strokeColor": "#1e293b",
       "backgroundColor": "transparent",
       "fillStyle": "solid",
       "strokeWidth": 1,
@@ -726,29 +1001,177 @@
       "groupIds": [],
       "frameId": null,
       "roundness": null,
-      "seed": 42002,
+      "seed": 1806364905,
       "version": 1,
-      "versionNonce": 42102,
+      "versionNonce": 1260585564,
       "isDeleted": false,
       "boundElements": null,
       "updated": 1,
       "link": null,
       "locked": false,
-      "fontSize": 16.0,
-      "fontFamily": 2,
-      "text": "re-check",
-      "rawText": "re-check",
-      "originalText": "re-check",
+      "fontSize": 20.0,
+      "fontFamily": 1,
+      "text": "Product & Intent\ncritic",
+      "rawText": "Product & Intent\ncritic",
+      "originalText": "Product & Intent\ncritic",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": null,
+      "containerId": "product-intent-critic",
+      "autoResize": true,
+      "lineHeight": 1.25
+    },
+    {
+      "id": "experience-communication-critic-label",
+      "type": "text",
+      "x": 692.4,
+      "y": 287.5,
+      "width": 205.2,
+      "height": 45.0,
+      "angle": 0,
+      "strokeColor": "#1e293b",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": null,
+      "seed": 1000298185,
+      "version": 1,
+      "versionNonce": 2105306885,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "fontSize": 18.0,
+      "fontFamily": 1,
+      "text": "Experience &\nCommunication critic",
+      "rawText": "Experience &\nCommunication critic",
+      "originalText": "Experience &\nCommunication critic",
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "experience-communication-critic",
+      "autoResize": true,
+      "lineHeight": 1.25
+    },
+    {
+      "id": "engineering-operational-critic-label",
+      "type": "text",
+      "x": 702.66,
+      "y": 401.5,
+      "width": 184.68,
+      "height": 45.0,
+      "angle": 0,
+      "strokeColor": "#1e293b",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": null,
+      "seed": 1557319143,
+      "version": 1,
+      "versionNonce": 297223389,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "fontSize": 18.0,
+      "fontFamily": 1,
+      "text": "Engineering &\nOperational critic",
+      "rawText": "Engineering &\nOperational critic",
+      "originalText": "Engineering &\nOperational critic",
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "engineering-operational-critic",
+      "autoResize": true,
+      "lineHeight": 1.25
+    },
+    {
+      "id": "review-findings-label",
+      "type": "text",
+      "x": 1054.5,
+      "y": 297.5,
+      "width": 171.0,
+      "height": 25.0,
+      "angle": 0,
+      "strokeColor": "#1e293b",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": null,
+      "seed": 190771180,
+      "version": 1,
+      "versionNonce": 716619841,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "fontSize": 20.0,
+      "fontFamily": 1,
+      "text": "Review findings",
+      "rawText": "Review findings",
+      "originalText": "Review findings",
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "review-findings",
+      "autoResize": true,
+      "lineHeight": 1.25
+    },
+    {
+      "id": "delivery-report-label",
+      "type": "text",
+      "x": 1383.18,
+      "y": 276.25,
+      "width": 143.64,
+      "height": 67.5,
+      "angle": 0,
+      "strokeColor": "#1e293b",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": null,
+      "seed": 614556672,
+      "version": 1,
+      "versionNonce": 2040402555,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "fontSize": 18.0,
+      "fontFamily": 1,
+      "text": "Report on work\ndelivered\n+ QA findings",
+      "rawText": "Report on work\ndelivered\n+ QA findings",
+      "originalText": "Report on work\ndelivered\n+ QA findings",
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "delivery-report",
       "autoResize": true,
       "lineHeight": 1.25
     }
   ],
   "appState": {
     "gridSize": null,
-    "viewBackgroundColor": "#f8f8f6"
+    "viewBackgroundColor": "#ffffff"
   },
   "files": {}
 }
