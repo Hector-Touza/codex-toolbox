@@ -1,0 +1,38 @@
+{
+  "name": "app-qa",
+  "version": "0.1.0",
+  "description": "Native three-critic quality assurance for apps, sites, and interactive product features.",
+  "author": {
+    "name": "Hector Touza",
+    "url": "https://github.com/Hector-Touza"
+  },
+  "homepage": "https://github.com/Hector-Touza/codex-toolbox/tree/main/plugins/app-qa",
+  "repository": "https://github.com/Hector-Touza/codex-toolbox",
+  "license": "MIT",
+  "keywords": [
+    "app-qa",
+    "quality-assurance",
+    "multi-agent",
+    "product-review",
+    "visual-qa"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "App QA",
+    "shortDescription": "Validate product work with three independent critics.",
+    "longDescription": "Runs a bounded first-class QA workflow with three direct read-only critics, main-thread adjudication, rework, re-checks, and a lean final report.",
+    "developerName": "Hector Touza",
+    "category": "Productivity",
+    "capabilities": [
+      "Multi-agent review",
+      "QA re-checks",
+      "Findings report"
+    ],
+    "websiteURL": "https://github.com/Hector-Touza/codex-toolbox/tree/main/plugins/app-qa",
+    "brandColor": "#2563EB",
+    "screenshots": [
+      "./assets/preview.png"
+    ],
+    "defaultPrompt": "Validate this app with app-qa."
+  }
+}

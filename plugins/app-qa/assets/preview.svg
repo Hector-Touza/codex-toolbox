@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1528" height="461" viewBox="16.00 23.00 1528.00 461.00">
+<rect x="16.00" y="23.00" width="1528.00" height="461.00" fill="#f8f8f6"/>
+<polyline points="300.00,225.00 360.00,225.00" fill="none" stroke="#334155" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="360.00,225.00 348.06,232.32 348.06,217.68" fill="#334155" />
+<polyline points="580.00,225.00 640.00,225.00" fill="none" stroke="#334155" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="640.00,225.00 628.06,232.32 628.06,217.68" fill="#334155" />
+<polyline points="900.00,225.00 980.00,225.00" fill="none" stroke="#334155" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="980.00,225.00 968.06,232.32 968.06,217.68" fill="#334155" />
+<polyline points="1200.00,225.00 1260.00,225.00" fill="none" stroke="#334155" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="1260.00,225.00 1248.06,232.32 1248.06,217.68" fill="#334155" />
+<polyline points="1090.00,270.00 1090.00,390.00 770.00,390.00 770.00,285.00" fill="none" stroke="#854d0e" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 8"/>
+<polygon points="770.00,285.00 777.32,296.94 762.68,296.94" fill="#854d0e" />
+<rect x="80.0" y="180.0" width="220.0" height="90.0" rx="11.25" fill="#fed7aa" stroke="#c2410c" stroke-width="2.0" opacity="1.000"/>
+<rect x="360.0" y="180.0" width="220.0" height="90.0" rx="11.25" fill="#e0f2fe" stroke="#0369a1" stroke-width="2.0" opacity="1.000"/>
+<rect x="640.0" y="165.0" width="260.0" height="120.0" rx="15.00" fill="#dbeafe" stroke="#1e40af" stroke-width="2.0" opacity="1.000"/>
+<rect x="980.0" y="180.0" width="220.0" height="90.0" rx="11.25" fill="#fef9c3" stroke="#854d0e" stroke-width="2.0" opacity="1.000"/>
+<rect x="1260.0" y="180.0" width="220.0" height="90.0" rx="11.25" fill="#dcfce7" stroke="#166534" stroke-width="2.0" opacity="1.000"/>
+<text x="80.00" y="114.30" text-anchor="start" font-family="Segoe UI, sans-serif" font-size="28.0" fill="#1e293b">
+<tspan x="80.00" dy="0.00">Local app-QA in five steps</tspan>
+</text>
+<text x="190.00" y="232.00" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="20.0" fill="#1e293b">
+<tspan x="190.00" dy="0.00">Minimal prompt</tspan>
+</text>
+<text x="470.00" y="219.50" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="20.0" fill="#1e293b">
+<tspan x="470.00" dy="0.00">Implement</tspan>
+<tspan x="470.00" dy="25.00">candidate</tspan>
+</text>
+<text x="770.00" y="208.80" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="18.0" fill="#1e293b">
+<tspan x="770.00" dy="0.00">3 critic tasks</tspan>
+<tspan x="770.00" dy="22.50">Product | Experience |</tspan>
+<tspan x="770.00" dy="22.50">Engineering</tspan>
+</text>
+<text x="1090.00" y="232.00" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="20.0" fill="#1e293b">
+<tspan x="1090.00" dy="0.00">Adjudicate + fix</tspan>
+</text>
+<text x="1370.00" y="219.50" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="20.0" fill="#1e293b">
+<tspan x="1370.00" dy="0.00">Deploy + QA</tspan>
+<tspan x="1370.00" dy="25.00">report</tspan>
+</text>
+<text x="930.00" y="414.60" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16.0" fill="#854d0e">
+<tspan x="930.00" dy="0.00">re-check</tspan>
+</text>
+</svg>
