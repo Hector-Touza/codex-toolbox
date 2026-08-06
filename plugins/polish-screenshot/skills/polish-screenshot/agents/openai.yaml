@@ -1,4 +1,4 @@
 interface:
   display_name: "Polish Screenshot"
-  short_description: "Create polished local screenshot compositions."
-  default_prompt: "Use $polish-screenshot to turn this window capture into a polished, publication-ready image."
+  short_description: "Redact and polish screenshots entirely locally."
+  default_prompt: "Use $polish-screenshot to redact only the areas I identify, visually verify the result, and turn this capture into a polished, publication-ready image."

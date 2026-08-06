@@ -16,7 +16,7 @@ except ImportError as exc:  # pragma: no cover - exercised only without the depe
     ) from exc
 
 
-VERSION = "0.1.0"
+VERSION = "0.2.0"
 
 PRESETS = {
     "coral-waves": "Warm coral mesh with quiet flowing lines.",
@@ -24,6 +24,8 @@ PRESETS = {
     "cobalt-grid": "Cobalt gradient with a restrained technical grid.",
     "paper-sunrise": "Warm paper field with soft sunrise color.",
 }
+
+REDACTION_STYLES = ("blur", "pixelate", "solid")
 
 
 def parse_size(value: str) -> tuple[int, int]:
@@ -36,6 +38,26 @@ def parse_size(value: str) -> tuple[int, int]:
     if width < 320 or height < 240:
         raise argparse.ArgumentTypeError("Canvas dimensions must be at least 320x240.")
     return width, height
+
+
+def parse_region(value: str) -> tuple[int, int, int, int]:
+    try:
+        x_text, y_text, width_text, height_text = value.split(",", 3)
+        x, y, width, height = (
+            int(x_text),
+            int(y_text),
+            int(width_text),
+            int(height_text),
+        )
+    except (TypeError, ValueError) as exc:
+        raise argparse.ArgumentTypeError(
+            "Use X,Y,WIDTH,HEIGHT in source-image pixels, for example 120,80,360,48."
+        ) from exc
+    if x < 0 or y < 0 or width <= 0 or height <= 0:
+        raise argparse.ArgumentTypeError(
+            "Region coordinates must be non-negative and dimensions must be positive."
+        )
+    return x, y, width, height
 
 
 def _mix(a: int, b: int, amount: float) -> int:
@@ -183,6 +205,154 @@ def _rounded_mask(size: tuple[int, int], radius: int) -> Image.Image:
     return mask
 
 
+def _expanded_region(
+    region: tuple[int, int, int, int],
+    image_size: tuple[int, int],
+    padding: int,
+) -> tuple[int, int, int, int]:
+    x, y, width, height = region
+    left = max(0, x - padding)
+    top = max(0, y - padding)
+    right = min(image_size[0], x + width + padding)
+    bottom = min(image_size[1], y + height + padding)
+    if left >= image_size[0] or top >= image_size[1] or right <= left or bottom <= top:
+        raise ValueError(
+            f"Redaction region {x},{y},{width},{height} falls outside the source image "
+            f"({image_size[0]}x{image_size[1]})."
+        )
+    return left, top, right, bottom
+
+
+def _feather_mask(size: tuple[int, int], feather: int) -> Image.Image:
+    if feather <= 0:
+        return Image.new("L", size, 255)
+    width, height = size
+    margin = feather * 3
+    mask = Image.new("L", (width + margin * 2, height + margin * 2), 0)
+    ImageDraw.Draw(mask).rectangle(
+        (margin, margin, margin + width - 1, margin + height - 1), fill=255
+    )
+    mask = mask.filter(ImageFilter.GaussianBlur(feather))
+    return mask.crop((margin, margin, margin + width, margin + height))
+
+
+def _blurred_crop(
+    source: Image.Image,
+    box: tuple[int, int, int, int],
+    strength: int,
+) -> Image.Image:
+    left, top, right, bottom = box
+    context = max(4, strength * 3)
+    context_box = (
+        max(0, left - context),
+        max(0, top - context),
+        min(source.width, right + context),
+        min(source.height, bottom + context),
+    )
+    blurred = source.crop(context_box).filter(ImageFilter.GaussianBlur(strength))
+    return blurred.crop(
+        (
+            left - context_box[0],
+            top - context_box[1],
+            right - context_box[0],
+            bottom - context_box[1],
+        )
+    )
+
+
+def apply_redactions(
+    source: Image.Image,
+    regions: list[tuple[int, int, int, int]],
+    *,
+    style: str,
+    strength: int,
+    padding: int,
+    feather: int,
+    color: str,
+) -> Image.Image:
+    result = source.convert("RGBA").copy()
+    solid_color = (*ImageColor.getrgb(color), 255)
+    for region in regions:
+        box = _expanded_region(region, result.size, padding)
+        width, height = box[2] - box[0], box[3] - box[1]
+        if style == "blur":
+            effect = _blurred_crop(result, box, strength)
+        elif style == "pixelate":
+            crop = result.crop(box)
+            reduced = (
+                max(1, width // max(2, strength)),
+                max(1, height // max(2, strength)),
+            )
+            effect = crop.resize(reduced, Image.Resampling.BOX).resize(
+                (width, height), Image.Resampling.NEAREST
+            )
+        else:
+            effect = Image.new("RGBA", (width, height), solid_color)
+        result.paste(effect, (box[0], box[1]), _feather_mask((width, height), feather))
+    return result
+
+
+def redact(
+    input_path: Path,
+    output_path: Path,
+    *,
+    regions: list[tuple[int, int, int, int]],
+    style: str,
+    strength: int,
+    padding: int,
+    feather: int,
+    color: str,
+    quality: int,
+) -> None:
+    with Image.open(input_path) as source_file:
+        source = ImageOps.exif_transpose(source_file).convert("RGBA")
+    redacted = apply_redactions(
+        source,
+        regions,
+        style=style,
+        strength=strength,
+        padding=padding,
+        feather=feather,
+        color=color,
+    )
+    _save_image(redacted, output_path, quality)
+
+
+def render_coordinate_guide(
+    input_path: Path,
+    output_path: Path,
+    *,
+    grid: int,
+) -> None:
+    with Image.open(input_path) as source_file:
+        source = ImageOps.exif_transpose(source_file).convert("RGBA")
+    overlay = Image.new("RGBA", source.size, (0, 0, 0, 0))
+    draw = ImageDraw.Draw(overlay)
+    line_color = (0, 112, 255, 120)
+    label_fill = (5, 16, 34, 205)
+    label_text = (255, 255, 255, 255)
+    for x in range(0, source.width, grid):
+        draw.line((x, 0, x, source.height), fill=line_color, width=1)
+        draw.rectangle((x + 3, 3, x + 48, 20), fill=label_fill)
+        draw.text((x + 7, 5), str(x), fill=label_text)
+    for y in range(0, source.height, grid):
+        draw.line((0, y, source.width, y), fill=line_color, width=1)
+        draw.rectangle((3, y + 3, 48, y + 20), fill=label_fill)
+        draw.text((7, y + 5), str(y), fill=label_text)
+    _save_image(Image.alpha_composite(source, overlay), output_path, 95)
+
+
+def _save_image(image: Image.Image, output_path: Path, quality: int) -> None:
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    suffix = output_path.suffix.lower()
+    if suffix in {".jpg", ".jpeg"}:
+        image.convert("RGB").save(output_path, quality=quality, optimize=True)
+    elif suffix == ".webp":
+        image.save(output_path, quality=quality, method=6)
+    else:
+        image.save(output_path, optimize=True)
+
+
 def _shadow_mask(
     canvas_size: tuple[int, int],
     card_mask: Image.Image,
@@ -218,9 +388,26 @@ def polish(
     upscale: bool,
     trim_alpha: bool,
     quality: int,
+    redaction_regions: list[tuple[int, int, int, int]] | None = None,
+    redaction_style: str = "blur",
+    redaction_strength: int = 24,
+    redaction_padding: int = 8,
+    redaction_feather: int = 3,
+    redaction_color: str = "#1B1F26",
 ) -> None:
     with Image.open(input_path) as source_file:
         source = ImageOps.exif_transpose(source_file).convert("RGBA")
+
+    if redaction_regions:
+        source = apply_redactions(
+            source,
+            redaction_regions,
+            style=redaction_style,
+            strength=redaction_strength,
+            padding=redaction_padding,
+            feather=redaction_feather,
+            color=redaction_color,
+        )
 
     if trim_alpha:
         bbox = source.getchannel("A").getbbox()
@@ -276,14 +463,7 @@ def polish(
         composition = Image.alpha_composite(composition, shadow)
 
     composition.alpha_composite(card, position)
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-    suffix = output_path.suffix.lower()
-    if suffix in {".jpg", ".jpeg"}:
-        composition.convert("RGB").save(output_path, quality=quality, optimize=True)
-    elif suffix == ".webp":
-        composition.save(output_path, quality=quality, method=6)
-    else:
-        composition.save(output_path, optimize=True)
+    _save_image(composition, output_path, quality)
 
 
 def _command_polish(args: argparse.Namespace) -> int:
@@ -303,8 +483,44 @@ def _command_polish(args: argparse.Namespace) -> int:
             upscale=not args.no_upscale,
             trim_alpha=args.trim_alpha,
             quality=args.quality,
+            redaction_regions=args.redact_region,
+            redaction_style=args.redaction_style,
+            redaction_strength=args.redaction_strength,
+            redaction_padding=args.redaction_padding,
+            redaction_feather=args.redaction_feather,
+            redaction_color=args.redaction_color,
         )
     except (OSError, ValueError) as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        return 2
+    print(args.output.resolve())
+    return 0
+
+
+def _command_redact(args: argparse.Namespace) -> int:
+    try:
+        redact(
+            args.input,
+            args.output,
+            regions=args.redact_region,
+            style=args.redaction_style,
+            strength=args.redaction_strength,
+            padding=args.redaction_padding,
+            feather=args.redaction_feather,
+            color=args.redaction_color,
+            quality=args.quality,
+        )
+    except (OSError, ValueError) as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        return 2
+    print(args.output.resolve())
+    return 0
+
+
+def _command_guide(args: argparse.Namespace) -> int:
+    try:
+        render_coordinate_guide(args.input, args.output, grid=args.grid)
+    except OSError as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 2
     print(args.output.resolve())
@@ -326,6 +542,44 @@ def _command_presets(args: argparse.Namespace) -> int:
     for name, description in PRESETS.items():
         print(f"{name:16} {description}")
     return 0
+
+
+def _add_redaction_arguments(
+    parser: argparse.ArgumentParser,
+    *,
+    required: bool,
+) -> None:
+    parser.add_argument(
+        "--redact-region",
+        type=parse_region,
+        action="append",
+        required=required,
+        default=[],
+        metavar="X,Y,WIDTH,HEIGHT",
+        help="Repeatable region in source-image pixels.",
+    )
+    parser.add_argument(
+        "--redaction-style", choices=REDACTION_STYLES, default="blur"
+    )
+    parser.add_argument(
+        "--redaction-strength",
+        type=int,
+        default=24,
+        help="Blur radius or approximate pixel block size.",
+    )
+    parser.add_argument(
+        "--redaction-padding",
+        type=int,
+        default=8,
+        help="Extra pixels around every region to prevent edge leakage.",
+    )
+    parser.add_argument(
+        "--redaction-feather",
+        type=int,
+        default=3,
+        help="Soft transition width; use 0 for hard-edged secure redaction.",
+    )
+    parser.add_argument("--redaction-color", default="#1B1F26")
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -353,7 +607,25 @@ def build_parser() -> argparse.ArgumentParser:
     polish_parser.add_argument("--no-upscale", action="store_true")
     polish_parser.add_argument("--trim-alpha", action="store_true")
     polish_parser.add_argument("--quality", type=int, default=92)
+    _add_redaction_arguments(polish_parser, required=False)
     polish_parser.set_defaults(handler=_command_polish)
+
+    redact_parser = subparsers.add_parser(
+        "redact", help="Redact selected source-image regions without changing layout."
+    )
+    redact_parser.add_argument("input", type=Path, help="Source screenshot path.")
+    redact_parser.add_argument("--output", "-o", type=Path, required=True)
+    redact_parser.add_argument("--quality", type=int, default=95)
+    _add_redaction_arguments(redact_parser, required=True)
+    redact_parser.set_defaults(handler=_command_redact)
+
+    guide_parser = subparsers.add_parser(
+        "guide", help="Create a temporary coordinate-grid copy for region selection."
+    )
+    guide_parser.add_argument("input", type=Path, help="Source screenshot path.")
+    guide_parser.add_argument("--output", "-o", type=Path, required=True)
+    guide_parser.add_argument("--grid", type=int, default=100)
+    guide_parser.set_defaults(handler=_command_guide)
 
     backgrounds_parser = subparsers.add_parser(
         "backgrounds", help="Render reusable background PNGs."
@@ -380,6 +652,14 @@ def main() -> int:
         raise SystemExit("--shadow-opacity must be between 0 and 1")
     if not 1 <= getattr(args, "quality", 92) <= 100:
         raise SystemExit("--quality must be between 1 and 100")
+    if getattr(args, "redaction_strength", 1) <= 0:
+        raise SystemExit("--redaction-strength must be positive")
+    if getattr(args, "redaction_padding", 0) < 0:
+        raise SystemExit("--redaction-padding must be non-negative")
+    if getattr(args, "redaction_feather", 0) < 0:
+        raise SystemExit("--redaction-feather must be non-negative")
+    if getattr(args, "grid", 20) < 20:
+        raise SystemExit("--grid must be at least 20 pixels")
     return args.handler(args)
 
 
