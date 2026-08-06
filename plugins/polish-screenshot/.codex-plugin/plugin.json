@@ -1,0 +1,38 @@
+{
+  "name": "polish-screenshot",
+  "version": "0.1.0",
+  "description": "Local, deterministic screenshot composition for publication-ready visuals.",
+  "author": {
+    "name": "Hector Touza",
+    "url": "https://github.com/Hector-Touza"
+  },
+  "homepage": "https://github.com/Hector-Touza/codex-toolbox/tree/main/plugins/polish-screenshot",
+  "repository": "https://github.com/Hector-Touza/codex-toolbox",
+  "license": "MIT",
+  "keywords": [
+    "screenshot",
+    "image-composition",
+    "social-media",
+    "linkedin",
+    "local-processing"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Polish Screenshot",
+    "shortDescription": "Create polished local screenshot compositions.",
+    "longDescription": "Frames window and application captures with deterministic backgrounds, balanced padding, rounded corners, and soft shadows, entirely on the local machine.",
+    "developerName": "Hector Touza",
+    "category": "Productivity",
+    "capabilities": [
+      "Local screenshot composition",
+      "Reusable background presets",
+      "Visual refinement"
+    ],
+    "websiteURL": "https://github.com/Hector-Touza/codex-toolbox/tree/main/plugins/polish-screenshot",
+    "brandColor": "#E96872",
+    "screenshots": [
+      "./assets/preview.png"
+    ],
+    "defaultPrompt": "Polish this screenshot for publication."
+  }
+}
