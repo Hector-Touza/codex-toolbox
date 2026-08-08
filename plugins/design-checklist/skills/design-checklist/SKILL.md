@@ -1,99 +1,108 @@
 ---
 name: design-checklist
-description: Audit and polish an existing website, web app, mobile interface, component, or product flow with evidence-led design checklists. Use when Codex needs to review UX/UI quality, prioritize concrete improvements, implement a restrained polish pass, validate responsive and accessible states, or create an honest before/after comparison grounded in Checklist Design and the product's own design system.
+description: Act as a design-development partner and evidence-led QA gate for new interfaces, redesigns, existing-product improvements, and before/after experiments. Use when Codex needs to define a product and design hypothesis, choose between repair, restructure, or redesign, guide implementation checkpoints, audit UX/UI and accessibility states, prevent cosmetic-only changes from masquerading as a redesign, or verify that a shipped interface creates a material and observable improvement grounded in Checklist Design and the product's own constraints.
 ---
 
 # Design Checklist
 
-Review the product that exists, select only the checklist lenses that fit its surface, and turn observable gaps into a small, verified polish pass. Preserve product intent and brand character; do not flatten a distinctive interface into generic dashboard styling.
+Turn a user outcome into a design contract, accompany implementation, and verify the rendered result. Do not assume that improvement means polish. Choose the smallest intervention capable of changing the user's experience, and reject a nominal redesign whose difference is only decorative.
 
 ## Read the right references
 
-- Read [references/source-map.md](references/source-map.md) to select current Checklist Design pages for the surface under review.
-- Read [references/review-lenses.md](references/review-lenses.md) for the distilled baseline when the source is unavailable or when a compact first pass is enough.
-- For a data-heavy operational surface, start with admin panel, table, filtering, empty/loading/error states, typography, spacing, color, and interaction states.
-- For a bounded component, load only that component's source page plus the relevant system foundations.
+- Read [references/source-map.md](references/source-map.md) to select current Checklist Design pages for the surface.
+- Read [references/review-lenses.md](references/review-lenses.md) for the compact evidence baseline.
+- Read [references/development-gates.md](references/development-gates.md) for new builds, redesigns, implementation work, or experiments.
+- For a bounded audit or repair, load only the relevant surface, flow, and system lenses.
 
-Treat Checklist Design as a third-party reference, not content to reproduce. Paraphrase criteria, link to the original pages, and fetch the smallest relevant set of pages when current web access is available.
+Treat Checklist Design as a third-party reference, not content to reproduce. Paraphrase criteria, link to the original pages, and retrieve the smallest relevant set when current web access is available.
 
 ## Workflow
 
-### 1. Fix the review frame
+### 1. Establish the design contract
 
-State the product surface, primary user task, target viewports, important states, and non-negotiable constraints. Inspect the product's existing tokens, components, nearby screens, and product documentation before proposing changes.
+Before code, state:
 
-Use the same data, route, viewport, and interaction state for comparisons. Do not manufacture a stronger after-state with friendlier data or a weaker before-state with an error or empty state.
+- the product surface and primary user;
+- the task, decision, or outcome the screen must enable;
+- what should be understood within five seconds;
+- the primary action and one or two supporting actions;
+- target viewports and consequential states;
+- product, data, brand, accessibility, and technical constraints;
+- observable success criteria.
 
-### 2. Capture evidence before judging
+Inspect existing documentation, data contracts, tokens, components, nearby flows, and rendered states. Preserve domain truth and working infrastructure even when replacing the presentation.
 
-Inspect the rendered interface at its normal desktop width and at one representative narrow width. Capture the main task and any loading, empty, error, success, disabled, selected, and focus states that matter.
+### 2. Choose the intervention level
 
-Record each criterion as one of:
+Classify the work explicitly:
 
-- `pass`: visibly and behaviorally satisfied;
-- `risk`: partially satisfied or fragile;
-- `fail`: a user-facing gap with evidence;
-- `not observed`: cannot be judged from the available state.
+- `repair`: fix a bounded usability, state, accessibility, or consistency defect;
+- `restructure`: change hierarchy, grouping, responsive behavior, or interaction flow while retaining the visual system;
+- `redesign`: establish a new information architecture, composition, interaction model, or visual system because the present approach cannot satisfy the outcome.
 
-Never claim visual, responsive, keyboard, zoom, or assistive-technology verification that did not run.
+Do not default to `repair`. Use `redesign` when the user asks to start over or when structural evidence shows that local fixes cannot create the required outcome. Do not retain legacy layout or styling merely because it already exists.
 
-### 3. Prioritize the polish
+### 3. Form a falsifiable hypothesis
 
-Prefer a few changes that improve task comprehension and control:
+Write one sentence:
 
-1. Clarify hierarchy, labels, and next actions.
-2. Make loading, empty, error, success, disabled, selected, and focus states distinct.
-3. Normalize spacing, type roles, color roles, and interactive states through existing tokens.
-4. Improve dense tables, filters, and narrow-layout behavior without hiding essential data.
-5. Remove decorative noise only when it competes with the user's task.
+> If we change **[design mechanism]** for **[user/task]**, then **[observable behavior or comprehension]** will improve, evidenced by **[comparison or acceptance check]**.
 
-Reject attractive changes that weaken brand, provenance, operational accuracy, or information density needed by the target user.
+For a restructure or redesign, establish a concrete visual direction before implementation. Use a selected mock, a source visual, or an explicit system covering hierarchy, layout, typography, color, density, and interaction. Avoid coding from vague adjectives.
 
-### 4. Implement in the existing system
+For an experiment, require material change across at least three of these axes:
 
-Reuse present components and tokens. Introduce a new token only when it replaces repeated arbitrary values or expresses a missing semantic role. Keep controls native and semantic where possible, preserve visible focus, respect reduced motion, and pair status color with text or another non-color cue.
+- information architecture;
+- page composition and hierarchy;
+- primary interaction model;
+- narrow-screen behavior;
+- visual system and density.
 
-For data tables:
+If the proposed delta does not meet that bar, label it a repair or polish pass rather than a redesign experiment.
 
-- keep column meaning and sort state explicit;
+### 4. Develop through checkpoints
+
+Treat QA as part of development, not a final inspection:
+
+1. **Contract gate:** confirm the screen serves the hypothesis before implementation expands.
+2. **First-viewport gate:** render the main task with realistic data; fix hierarchy before secondary details.
+3. **Interaction gate:** exercise primary actions plus loading, empty, error, disabled, selected, focus, and success states that matter.
+4. **Responsive gate:** verify a representative narrow viewport, content reflow, overflow strategy, touch targets, and zoom resilience.
+5. **Release gate:** compare the rendered result against the design contract and run relevant automated checks.
+
+At each gate, record criteria as `pass`, `risk`, `fail`, or `not observed`. Fix failures that invalidate the hypothesis before adding surface polish.
+
+### 5. Implement the chosen system
+
+Keep APIs, authentication, data truth, and working domain behavior stable unless the brief changes them. Reuse existing components and tokens only when they support the selected direction. In redesign mode, replacing presentation components and tokens is allowed; do not let reuse collapse the redesign back into the legacy layout.
+
+Keep controls semantic, preserve visible focus, respect reduced motion, pair status color with text or another cue, and make action feedback specific. Use native interaction patterns unless a custom pattern materially improves the task and remains accessible.
+
+For data-heavy surfaces:
+
+- prioritize decisions and exceptions before aggregate decoration;
+- keep column meaning, sort state, provenance, and timestamps explicit;
 - place search and filters next to the collection they affect;
-- expose applied filters and a clear reset path;
 - distinguish no data, no results, load failure, and in-progress states;
-- choose deliberate narrow-layout behavior: prioritized columns, stacked rows, or labeled horizontal scroll.
+- choose deliberate narrow behavior: prioritized fields, stacked records, drill-down, or labeled horizontal scroll.
 
-### 5. Build honest before/after comparisons
+### 6. Run an honest experiment
 
-When the user asks for a toggle, comparison, or reveal:
+Keep legacy and experimental interfaces independently credible. Share data and domain logic, but prefer separate presentation trees for a true redesign. A root class that changes spacing, font sizes, and borders is not sufficient evidence of a redesign.
 
-- use a segmented control, tabs, or radio group for `Before` and `After`; do not use an on/off switch for two alternative versions;
-- keep both views in the same build and on the same data;
-- default to `After`, unless the user asks otherwise;
-- announce the selected view programmatically;
-- preserve the original version closely enough that the comparison remains credible;
-- avoid duplicating application state when a root class or shared presentation mode can switch the visual layer safely.
+Use the same route, data, viewport, filters, and state for comparisons. Use a segmented control, tabs, or radio group for `Before` and `After`; default to `After`; announce the active view programmatically. Do not weaken the before-state or curate friendlier after-state data.
 
-### 6. Verify and iterate
+Apply the materiality test before launch:
 
-Re-capture before and after at matching viewports and states. Compare the images together, then check:
+- can a viewer identify the changed product idea within five seconds?
+- does the primary task or decision become visibly easier?
+- can the difference be described in structural terms, not only visual adjectives?
+- do mobile and desktop express the same hypothesis appropriately?
 
-- primary task clarity and interaction feedback;
-- focus visibility and keyboard order;
-- semantic labels and status communication without color alone;
-- responsive reflow, horizontal overflow, truncation, and tap targets;
-- 200% zoom resilience when practical;
-- loading, empty, no-results, error, and success distinctions;
-- console errors, broken links, and relevant automated checks.
+If not, mark the experiment failed before release and revise the concept.
 
-Fix visible regressions before handoff. If rendered capture is blocked, finish only the checks that remain trustworthy and name visual QA as incomplete.
+### 7. Verify and hand off
 
-## Handoff
+Capture matched desktop and narrow views plus consequential states. Compare reference, before, and after together when available. Check focus order, status communication without color, overflow, truncation, tap targets, 200% zoom when practical, console errors, broken links, and relevant automated checks.
 
-Lead with the visible result. Report:
-
-- the most consequential improvements;
-- the preserved strengths;
-- the exact checks completed;
-- unresolved risks or unobserved states;
-- where the before/after control lives, when included.
-
-Keep the report short. Link to Checklist Design only for the source pages that materially shaped the pass.
+Lead the handoff with the hypothesis result. Report the structural changes, preserved constraints, checks completed, unresolved risks, and experiment control location. Do not claim verification that did not run.

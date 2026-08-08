@@ -1,53 +1,59 @@
 # Distilled review lenses
 
-Use this baseline to structure evidence. It is an original synthesis, not a copy of Checklist Design.
+Use these lenses to structure evidence. They are an original synthesis, not a copy of Checklist Design.
 
-## Product surface
+## Product and decision clarity
 
-- Does the screen make its primary job and current state obvious?
-- Are privileged, destructive, or account-wide actions separated and proportionate to risk?
-- Can the user understand what changed, what is still running, and what needs attention?
-- Are auditability, provenance, and permission boundaries visible where they affect trust?
+- Is the primary user, task, current state, and next decision obvious?
+- Does the first viewport prioritize what needs attention over descriptive decoration?
+- Can the user tell what changed, what is running, what failed, and what requires action?
+- Are auditability, provenance, freshness, and permission boundaries visible where they affect trust?
 
-## Information hierarchy
+## Information architecture
 
-- Do type roles follow meaning rather than isolated pixel choices?
+- Are groups based on user decisions and workflow rather than data-source shape?
+- Are overview, exception, investigation, and action layers distinct?
+- Does navigation expose the important path without advertising every feature?
+- Does the narrow layout preserve task priority rather than merely stack desktop sections?
+
+## Hierarchy and composition
+
+- Do typography, placement, scale, and whitespace establish a clear reading order?
 - Are headings, labels, body copy, metadata, and numeric emphasis visibly distinct?
-- Does line height support scanning at the actual density of the product?
+- Is density intentional for the task, with decoration subordinate to signal?
 - Does hierarchy survive narrow screens and 200% zoom?
 
-## Spacing and layout
+## Interaction model
 
-- Do repeated gaps and paddings follow a compact scale?
-- Are component spacing and page-layout spacing intentionally different?
-- Are breakpoints driven by content behavior?
-- Does dense content have an explicit compact or comfortable posture rather than accidental crowding?
+- Does action copy predict its result?
+- Are primary and supporting actions proportionate and placed near their consequences?
+- Are hover, focus, pressed, loading, disabled, selected, success, and error states distinct where relevant?
+- Are empty, no-results, load-error, permission-denied, and in-progress states recoverable?
 
-## Color and status
+## Visual system
 
-- Are colors named and used by semantic role?
-- Do default, hover, active, selected, focus, and disabled states remain distinguishable?
-- Are success, warning, error, information, and neutral states consistent?
-- Is every status understandable without color alone, with sufficient text and UI contrast?
+- Do spacing, type, color, radius, border, and elevation roles form a coherent system?
+- Are colors semantic and every status understandable without color alone?
+- Are components reused because they serve the direction, not because they already exist?
+- Does the result retain product character without relying on generic dashboard conventions?
 
 ## Tables and collections
 
-- Do headers preserve column context, especially during scroll?
-- Are row density, dividers, and hover/focus states consistent?
-- Are search, filter, sort, and row actions discoverable and keyboard-safe?
-- Are applied filters, result count, individual removal, and reset paths clear?
-- Is narrow behavior deliberate and labeled rather than an accidental overflow trap?
+- Do headers preserve context during scroll?
+- Are search, filters, sort, counts, and row actions discoverable and keyboard-safe?
+- Are applied filters and reset paths clear?
+- Is narrow behavior deliberate: prioritized fields, stacked records, drill-down, or labeled overflow?
 
-## Interaction feedback
+## Implementation fidelity
 
-- Does action copy predict the result?
-- Do controls cover hover, focus, pressed, loading, disabled, and success states where relevant?
-- Is progress feedback specific enough to explain what is happening?
-- Are empty, no-results, load-error, and permission-denied states distinct and recoverable?
+- Does the rendered first viewport still express the design hypothesis?
+- Did technical reuse dilute the selected information architecture or composition?
+- Do realistic data and long labels preserve the intended layout?
+- Are responsive and interaction states designed rather than patched after the happy path?
 
-## Comparison integrity
+## Experiment integrity
 
-- Are before and after shown with the same data, viewport, and state?
-- Is the comparison control appropriate for alternatives rather than on/off state?
-- Can keyboard and assistive-technology users identify the active version?
-- Does the after-state improve the task without erasing useful density or brand character?
+- Do before and after use the same route, data, viewport, filters, and state?
+- Is the active version programmatically identifiable?
+- Does the experiment change at least three structural axes?
+- Is the improvement understandable in five seconds and describable without CSS adjectives?

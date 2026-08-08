@@ -14,7 +14,7 @@ Each plugin is self-contained. It has its own manifest, documentation, assets, e
 | [Polish Screenshot](plugins/polish-screenshot/README.md) | Turns raw screenshots and window captures into polished, publication-ready compositions. It can also redact selected regions without image generation, inspect the result, and iterate until it is ready to share. | Skill + Python CLI |
 | [Excalidraw Studio](plugins/excalidraw-studio/README.md) | Creates editable `.excalidraw` files, validates them, renders local SVG and PNG previews, and inspects the output before refinement. | Skill + local MCP server + Python CLI |
 | [App QA](plugins/app-qa/README.md) | Reviews an app with three independent critics, consolidates findings, guides rework, and records the result in `app-qa-findings.md`. | Skill |
-| [Design Checklist](plugins/design-checklist/README.md) | Audits and polishes product interfaces with focused, evidence-led design checklists and honest before/after comparisons. | Skill |
+| [Design Checklist](plugins/design-checklist/README.md) | Acts as a design-development partner: defines the hypothesis, selects the intervention level, guides implementation, and verifies material outcomes. | Skill |
 
 ## Install
 
