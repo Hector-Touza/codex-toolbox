@@ -1,0 +1,35 @@
+{
+  "name": "design-checklist",
+  "version": "0.1.0",
+  "description": "Evidence-led UX/UI review and implementation polish grounded in focused design checklists.",
+  "author": {
+    "name": "Hector Touza",
+    "url": "https://github.com/Hector-Touza"
+  },
+  "homepage": "https://github.com/Hector-Touza/codex-toolbox/tree/main/plugins/design-checklist",
+  "repository": "https://github.com/Hector-Touza/codex-toolbox",
+  "license": "MIT",
+  "keywords": [
+    "design-review",
+    "ux-audit",
+    "ui-polish",
+    "accessibility",
+    "responsive-design"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Design Checklist",
+    "shortDescription": "Audit and polish interfaces with focused evidence.",
+    "longDescription": "Selects the design checklists that match a product surface, audits the rendered experience, implements a restrained polish pass, and verifies honest before/after comparisons.",
+    "developerName": "Hector Touza",
+    "category": "Productivity",
+    "capabilities": [
+      "UX/UI review",
+      "Implementation polish",
+      "Before/after verification"
+    ],
+    "websiteURL": "https://github.com/Hector-Touza/codex-toolbox/tree/main/plugins/design-checklist",
+    "brandColor": "#DF4B2F",
+    "defaultPrompt": "Audit this interface with Design Checklist and implement the highest-impact polish."
+  }
+}

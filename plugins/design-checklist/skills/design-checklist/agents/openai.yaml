@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Checklist"
+  short_description: "Evidence-led UX/UI review and polish"
+  default_prompt: "Use $design-checklist to audit this interface and implement the highest-impact polish."
