@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Checklist"
+  short_description: "Design partner and evidence-led QA gate"
+  default_prompt: "Use $design-checklist to define the design hypothesis, guide implementation, and verify a material improvement."

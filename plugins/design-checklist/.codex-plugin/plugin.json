@@ -1,0 +1,36 @@
+{
+  "name": "design-checklist",
+  "version": "0.2.0",
+  "description": "Design-development partnership and evidence-led UX/UI quality gates grounded in focused design checklists.",
+  "author": {
+    "name": "Hector Touza",
+    "url": "https://github.com/Hector-Touza"
+  },
+  "homepage": "https://github.com/Hector-Touza/codex-toolbox/tree/main/plugins/design-checklist",
+  "repository": "https://github.com/Hector-Touza/codex-toolbox",
+  "license": "MIT",
+  "keywords": [
+    "design-review",
+    "ux-audit",
+    "design-development",
+    "design-qa",
+    "accessibility",
+    "responsive-design"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Design Checklist",
+    "shortDescription": "Guide design development and verify outcomes.",
+    "longDescription": "Defines a falsifiable design hypothesis, chooses the right intervention level, accompanies implementation through evidence gates, and prevents cosmetic changes from masquerading as redesigns.",
+    "developerName": "Hector Touza",
+    "category": "Productivity",
+    "capabilities": [
+      "Design hypothesis",
+      "Development quality gates",
+      "Material before/after verification"
+    ],
+    "websiteURL": "https://github.com/Hector-Touza/codex-toolbox/tree/main/plugins/design-checklist",
+    "brandColor": "#DF4B2F",
+    "defaultPrompt": "Use Design Checklist as a development partner: define the hypothesis, choose the intervention, guide implementation, and verify the result."
+  }
+}

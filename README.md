@@ -14,6 +14,7 @@ Each plugin is self-contained. It has its own manifest, documentation, assets, e
 | [Polish Screenshot](plugins/polish-screenshot/README.md) | Turns raw screenshots and window captures into polished, publication-ready compositions. It can also redact selected regions without image generation, inspect the result, and iterate until it is ready to share. | Skill + Python CLI |
 | [Excalidraw Studio](plugins/excalidraw-studio/README.md) | Creates editable `.excalidraw` files, validates them, renders local SVG and PNG previews, and inspects the output before refinement. | Skill + local MCP server + Python CLI |
 | [App QA](plugins/app-qa/README.md) | Reviews an app with three independent critics, consolidates findings, guides rework, and records the result in `app-qa-findings.md`. | Skill |
+| [Design Checklist](plugins/design-checklist/README.md) | Acts as a design-development partner: defines the hypothesis, selects the intervention level, guides implementation, and verifies material outcomes. | Skill |
 
 ## Install
 
@@ -29,6 +30,7 @@ Then install the plugins you need:
 codex plugin add excalidraw-studio@codex-toolbox
 codex plugin add app-qa@codex-toolbox
 codex plugin add polish-screenshot@codex-toolbox
+codex plugin add design-checklist@codex-toolbox
 ```
 
 You can also ask Codex to do this for you:
@@ -48,6 +50,7 @@ The plugins are not in the official OpenAI Plugins Directory. Review third-party
 plugins/excalidraw-studio/        Excalidraw Studio plugin
 plugins/app-qa/                   App QA plugin
 plugins/polish-screenshot/        Polish Screenshot plugin
+plugins/design-checklist/         Design Checklist plugin
 ```
 
 The repository can later include more self-contained plugins under `plugins/`. Standalone skills or MCP servers can use top-level folders when they are not part of a plugin.
